@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-cream: #fcf8f1;
+  --color-cream-dark: #f5ede0;
+  --color-sage: #5b8a68;
+  --color-sage-light: #7aab87;
+  --color-sage-dark: #4a7255;
+  --color-earth: #8b7355;
+  --color-earth-light: #a8936f;
+  --color-clay: #c4956a;
+  --color-sepia-50: #fefdfb;
+  --color-sepia-100: #fdf8f0;
+  --color-sepia-200: #f0e6d3;
+  --color-sepia-300: #dcc9a8;
+  --color-sepia-400: #c4a87a;
+  --color-sepia-500: #a8876a;
+  --color-parchment: #f7f0e3;
+  --color-linen: #faf6ee;
+
+  /* Fonts */
+  --font-serif: 'Alice', 'Crimson Text', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  --animate-fade-in-scale: fade-in-scale 1s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  font-family: var(--font-sans);
+}
+
+/* Paper texture overlay */
+.paper-texture {
+  position: relative;
+}
+
+.paper-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Deckle edge effect */
+.deckle-edge {
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,2 Q5,0 10,2 Q15,4 20,2 Q25,0 30,2 Q35,4 40,2 Q45,0 50,2 Q55,4 60,2 Q65,0 70,2 Q75,4 80,2 Q85,0 90,2 Q95,4 100,2 Q105,0 110,2 Q115,4 120,2 Q125,0 130,2 Q135,4 140,2 Q145,0 150,2 Q155,4 160,2 Q165,0 170,2 Q175,4 180,2 Q185,0 190,2 Q195,4 200,2 L200,198 Q195,200 190,198 Q185,196 180,198 Q175,200 170,198 Q165,196 160,198 Q155,200 150,198 Q145,196 140,198 Q135,200 130,198 Q125,196 120,198 Q115,200 110,198 Q105,196 100,198 Q95,200 90,198 Q85,196 80,198 Q75,200 70,198 Q65,196 60,198 Q55,200 50,198 Q45,196 40,198 Q35,200 30,198 Q25,196 20,198 Q15,200 10,198 Q5,196 0,198 Z' fill='white'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+
+/* Vintage frame */
+.vintage-frame {
+  border: 1px solid var(--color-sepia-200);
+  box-shadow:
+    inset 0 0 20px rgba(139, 115, 85, 0.05),
+    0 2px 10px rgba(139, 115, 85, 0.08);
+}
+
+/* Photo shadow for pinned look */
+.photo-shadow {
+  box-shadow:
+    2px 3px 8px rgba(139, 115, 85, 0.15),
+    -1px -1px 3px rgba(255, 255, 255, 0.5);
+  transform: rotate(-1deg);
+}
+
+.photo-shadow-alt {
+  box-shadow:
+    2px 3px 8px rgba(139, 115, 85, 0.15),
+    -1px -1px 3px rgba(255, 255, 255, 0.5);
+  transform: rotate(1.5deg);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sepia-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sepia-400);
+}
