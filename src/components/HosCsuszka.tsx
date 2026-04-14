@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import kep1 from '../assets/img/1.jpg'
+import kep2 from '../assets/img/2.jpg'
+import kep3 from '../assets/img/3.jpg'
 
 interface Hir {
   cim: string
@@ -12,17 +15,17 @@ const hirek: Hir[] = [
   {
     cim: 'Tavaszi vásár — Kedvezményes palánták',
     leiras: 'Látogasson el hozzánk és válasszon friss, egészséges palántáink közül! Széles választék paradicsomból, paprikából és fűszernövényekből.',
-    kep: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&h=600&fit=crop',
+    kep: kep1,
   },
   {
     cim: 'Új rózsakollekció érkezett',
     leiras: 'Angol és történelmi rózsafajták egyenesen a legjobb európai kertészetekből. Illatos, bőségesen virágzó fajták.',
-    kep: 'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1200&h=600&fit=crop',
+    kep: kep2,
   },
   {
     cim: 'Kertészeti tanfolyam indul',
     leiras: 'Tartson velünk szombati kertészeti workshopunkon! Megtanuljuk a metszés, oltás és a természetes növényvédelem alapjait.',
-    kep: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=1200&h=600&fit=crop',
+    kep: kep3,
   },
 ]
 

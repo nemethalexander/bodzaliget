@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Leaf, X } from 'lucide-react'
+import logo from '../assets/logoc.png'
 
 const menuPontok = [
   { cimke: 'Kezdőlap', href: '#kezdolap' },
@@ -96,15 +97,11 @@ export default function Navigacio() {
       <header className="fixed top-0 left-0 right-0 z-40">
         {/* Thin green accent line */}
         <div className="h-1 bg-sage" />
-        <div className="bg-cream/90 backdrop-blur-md border-b border-sepia-200/40">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="bg-cream/90 backdrop-blur-md border-b border-sepia-200/40 overflow-hidden">
+          <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#kezdolap" className="flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-full bg-sage flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-cream" strokeWidth={1.5} />
-              </div>
-              <div>
-                <h1 className="font-serif text-xl text-stone-800 leading-none">Bodzaliget</h1>
-                <p className="text-[10px] text-sage tracking-[0.2em] uppercase mt-0.5">Kertészet</p>
+              <div className="w-48 h-14 flex-shrink-0 flex items-center overflow-hidden">
+                <img src={logo} alt="Bodzaliget Kertészet logó" className="h-12 w-12 object-contain scale-[4] origin-left" />
               </div>
             </a>
 

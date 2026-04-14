@@ -6,7 +6,11 @@
       "Bash(rmdir bodzaliget-app:*)",
       "Bash(npm install:*)",
       "Bash(npx tsc:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(node optimize-images.mjs)",
+      "Bash(mv 2.JPG 2.jpg)",
+      "Bash(mv 3.JPG 3.jpg)",
+      "Bash(mv 5.JPG 5.jpg)"
     ]
   }
 }

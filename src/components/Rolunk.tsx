@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Heart, Sprout, Sun } from 'lucide-react'
+import kep4 from '../assets/img/4.jpg'
+import kep5 from '../assets/img/5.jpg'
 
 const misszioElemek = [
   {
@@ -49,17 +51,17 @@ export default function Rolunk() {
             className="relative"
           >
             {/* Main photo */}
-            <div className="photo-shadow rounded-sm overflow-hidden deckle-edge">
+            <div className="photo-shadow rounded-sm overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&h=400&fit=crop"
+                src={kep4}
                 alt="Kertészet"
                 className="w-full h-72 md:h-96 object-cover"
               />
             </div>
             {/* Overlapping smaller photo */}
-            <div className="absolute -bottom-8 -right-4 md:-right-8 w-40 md:w-52 photo-shadow-alt rounded-sm overflow-hidden deckle-edge border-4 border-cream">
+            <div className="absolute -bottom-8 -right-4 md:-right-8 w-40 md:w-52 photo-shadow-alt rounded-sm overflow-hidden border-4 border-cream">
               <img
-                src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=300&h=300&fit=crop"
+                src={kep5}
                 alt="Virágok"
                 className="w-full h-40 md:h-48 object-cover"
               />
