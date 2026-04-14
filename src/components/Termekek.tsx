@@ -3,39 +3,19 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Flower2, TreePine, Shovel, Leaf, Sprout, Package } from 'lucide-react'
 
 const termekek = [
-  {
-    ikon: Flower2,
-    nev: 'Egynyári virágok',
-    leiras: 'Színpompás egynyári növények, amelyek egész nyáron díszítik kertjét.',
-  },
-  {
-    ikon: TreePine,
-    nev: 'Cserjék & Fák',
-    leiras: 'Díszcserjék, gyümölcsfák és örökzöldek széles választéka.',
-  },
-  {
-    ikon: Shovel,
-    nev: 'Kertészeti eszközök',
-    leiras: 'Minőségi kerti szerszámok, kaspók és kiegészítők a kertészkedéshez.',
-  },
-  {
-    ikon: Sprout,
-    nev: 'Évelők & Hagymások',
-    leiras: 'Évelő dísznövények és virághagymák, amelyek évről évre visszatérnek kertjébe.',
-  },
-  {
-    ikon: Leaf,
-    nev: 'Fűszernövények',
-    leiras: 'Friss, illatosan nevelt fűszernövények a konyhakertbe és az erkélyre egyaránt.',
-  },
-  {
-    ikon: Package,
-    nev: 'Föld & Mulcs',
-    leiras: 'Prémium virágföldek, komposzt és dekoratív mulcs anyagok.',
-  },
+  { id: 'egynyari', ikon: Flower2, nev: 'Egynyári virágok', leiras: 'Színpompás egynyári növények, amelyek egész nyáron díszítik kertjét.' },
+  { id: 'cserjek', ikon: TreePine, nev: 'Cserjék & Fák', leiras: 'Díszcserjék, gyümölcsfák és örökzöldek széles választéka.' },
+  { id: 'eszkozok', ikon: Shovel, nev: 'Kertészeti eszközök', leiras: 'Minőségi kerti szerszámok, kaspók és kiegészítők a kertészkedéshez.' },
+  { id: 'evelok', ikon: Sprout, nev: 'Évelők & Hagymások', leiras: 'Évelő dísznövények és virághagymák, amelyek évről évre visszatérnek kertjébe.' },
+  { id: 'fuszernov', ikon: Leaf, nev: 'Fűszernövények', leiras: 'Friss, illatosan nevelt fűszernövények a konyhakertbe és az erkélyre egyaránt.' },
+  { id: 'fold', ikon: Package, nev: 'Föld & Mulcs', leiras: 'Prémium virágföldek, komposzt és dekoratív mulcs anyagok.' },
 ]
 
-export default function Termekek() {
+interface Props {
+  onTermekMegnyit: (id: string) => void
+}
+
+export default function Termekek({ onTermekMegnyit }: Props) {
   const { ref, isVisible } = useScrollReveal()
 
   return (
@@ -63,6 +43,7 @@ export default function Termekek() {
               initial={{ opacity: 0, y: 20 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1 + index * 0.1 }}
+              onClick={() => onTermekMegnyit(termek.id)}
               className="group vintage-frame rounded-sm bg-cream/60 p-8 hover:bg-cream hover:shadow-md transition-all duration-500 cursor-pointer paper-texture"
             >
               <div className="relative z-10">

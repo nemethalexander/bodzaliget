@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Heart, Sprout, Sun } from 'lucide-react'
-import kep4 from '../assets/img/4.jpg'
-import kep5 from '../assets/img/5.jpg'
+import kep4 from '../assets/img/4.webp'
+import kep5 from '../assets/img/5.webp'
 
 const misszioElemek = [
   {
@@ -22,7 +22,11 @@ const misszioElemek = [
   },
 ]
 
-export default function Rolunk() {
+interface Props {
+  onRolunkMegnyit: () => void
+}
+
+export default function Rolunk({ onRolunkMegnyit }: Props) {
   const { ref, isVisible } = useScrollReveal()
 
   return (
@@ -86,10 +90,13 @@ export default function Rolunk() {
               személyes tanácsadással. Nem csupán egy kertészet vagyunk — közösséget építünk
               azokból, akik hisznek a zöld jövőben.
             </p>
-            <div className="inline-flex items-center gap-2 text-sage text-sm border-b border-sage/30 pb-1 hover:border-sage transition-colors duration-300">
+            <button
+              onClick={onRolunkMegnyit}
+              className="group inline-flex items-center gap-2 text-sage text-sm border-b border-sage/30 pb-1 hover:border-sage transition-colors duration-300 cursor-pointer"
+            >
               <span>Ismerjen meg minket</span>
-              <span className="text-lg leading-none">&rarr;</span>
-            </div>
+              <span className="text-lg leading-none group-hover:translate-x-1 transition-transform duration-300 inline-block">&rarr;</span>
+            </button>
           </motion.div>
         </div>
 

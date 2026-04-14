@@ -1,13 +1,17 @@
 import { Phone, Mail, MapPin } from 'lucide-react'
 import logof from '../assets/logof.png'
 
-export default function Lablec() {
+interface Props {
+  compact?: boolean
+}
+
+export default function Lablec({ compact = false }: Props) {
   return (
     <footer className="bg-sage-dark text-cream/80">
       {/* Decorative border */}
       <div className="h-px bg-gradient-to-r from-transparent via-sage/40 to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className={`max-w-6xl mx-auto px-6 ${compact ? 'py-8' : 'py-16'}`}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
@@ -58,7 +62,7 @@ export default function Lablec() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-cream/10 my-10" />
+        <div className={`h-px bg-cream/10 ${compact ? 'my-6' : 'my-10'}`} />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">

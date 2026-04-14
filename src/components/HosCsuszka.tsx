@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import kep1 from '../assets/img/1.jpg'
-import kep2 from '../assets/img/2.jpg'
-import kep3 from '../assets/img/3.jpg'
+import kep1 from '../assets/img/1.webp'
+import kep2 from '../assets/img/2.webp'
+import kep3 from '../assets/img/3.webp'
 
 interface Hir {
   cim: string
@@ -105,20 +105,22 @@ export default function HosCsuszka() {
           <div className="flex items-center gap-6 mt-6">
             <button
               onClick={elozo}
-              className="w-10 h-10 rounded-full border border-cream/30 flex items-center justify-center text-cream/70 hover:bg-cream/10 transition-all duration-300 cursor-pointer"
+              className="group flex items-center justify-center text-sage-light/70 hover:text-sage-light transition-colors duration-300 cursor-pointer"
               aria-label="Előző"
             >
-              <ChevronLeft className="w-4 h-4" strokeWidth={1.5} />
+              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform duration-300" strokeWidth={2} />
             </button>
 
-            {/* Dots */}
-            <div className="flex gap-3">
+            {/* Lines */}
+            <div className="flex items-center gap-3">
               {hirek.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setAktualis(i)}
-                  className={`h-px transition-all duration-700 cursor-pointer ${
-                    i === aktualis ? 'w-10 bg-cream' : 'w-6 bg-cream/30'
+                  className={`h-[4px] rounded-full transition-all duration-700 cursor-pointer ${
+                    i === aktualis
+                      ? 'w-10 bg-sage-light shadow-[0_0_8px_rgba(122,171,135,0.8)]'
+                      : 'w-5 bg-sage-light/35 hover:bg-sage-light/60'
                   }`}
                   aria-label={`Dia ${i + 1}`}
                 />
@@ -127,10 +129,10 @@ export default function HosCsuszka() {
 
             <button
               onClick={kovetkezo}
-              className="w-10 h-10 rounded-full border border-cream/30 flex items-center justify-center text-cream/70 hover:bg-cream/10 transition-all duration-300 cursor-pointer"
+              className="group flex items-center justify-center text-sage-light/70 hover:text-sage-light transition-colors duration-300 cursor-pointer"
               aria-label="Következő"
             >
-              <ChevronRight className="w-4 h-4" strokeWidth={1.5} />
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" strokeWidth={2} />
             </button>
           </div>
         </div>
