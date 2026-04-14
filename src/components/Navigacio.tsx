@@ -98,10 +98,10 @@ export default function Navigacio() {
         {/* Thin green accent line */}
         <div className="h-1 bg-sage" />
         <div className="bg-cream/90 backdrop-blur-md border-b border-sepia-200/40 overflow-hidden">
-          <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#kezdolap" className="flex items-center gap-3 group">
-              <div className="w-48 h-14 flex-shrink-0 flex items-center overflow-hidden">
-                <img src={logo} alt="Bodzaliget Kertészet logó" className="h-12 w-12 object-contain scale-[4] origin-left" />
+          <div className="max-w-6xl mx-auto px-2 md:px-6 h-16 flex items-center justify-center md:justify-between">
+            <a href="#kezdolap" className="flex items-center group">
+              <div className="w-48 h-14 flex-shrink-0 flex items-center justify-center md:justify-start overflow-hidden">
+                <img src={logo} alt="Bodzaliget Kertészet logó" className="h-12 w-12 object-contain scale-[4] origin-center md:origin-left" />
               </div>
             </a>
 

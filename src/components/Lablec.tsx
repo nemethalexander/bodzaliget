@@ -1,4 +1,5 @@
-import { Leaf, Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
+import logof from '../assets/logof.png'
 
 export default function Lablec() {
   return (
@@ -10,9 +11,8 @@ export default function Lablec() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Leaf className="w-5 h-5 text-sage-light" strokeWidth={1.5} />
-              <span className="font-serif text-xl text-cream">Bodzaliget</span>
+            <div className="w-48 h-14 mb-4 flex items-center overflow-hidden">
+              <img src={logof} alt="Bodzaliget Kertészet" className="h-12 w-12 object-contain scale-[4] origin-left" />
             </div>
             <p className="text-sm leading-relaxed text-cream/60">
               Több évtizedes tapasztalattal és a növények iránti szenvedéllyel

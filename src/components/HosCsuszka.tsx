@@ -13,18 +13,18 @@ interface Hir {
 
 const hirek: Hir[] = [
   {
-    cim: 'Tavaszi vásár — Kedvezményes palánták',
-    leiras: 'Látogasson el hozzánk és válasszon friss, egészséges palántáink közül! Széles választék paradicsomból, paprikából és fűszernövényekből.',
+    cim: 'Friss palánták és virágok várnak',
+    leiras: 'Tavasszal újra tele van a kertészet! Paradicsom, paprika, fűszernövények és színes egynyáriak — gyere és válogass kedvedre.',
     kep: kep1,
   },
   {
-    cim: 'Új rózsakollekció érkezett',
-    leiras: 'Angol és történelmi rózsafajták egyenesen a legjobb európai kertészetekből. Illatos, bőségesen virágzó fajták.',
+    cim: 'Cserepes dísznövények nagy választékban',
+    leiras: 'Szobanövényektől a terasz- és erkélynövényekig mindenből tartunk. Nálunk biztosan megtalálod, amit keresel.',
     kep: kep2,
   },
   {
-    cim: 'Kertészeti tanfolyam indul',
-    leiras: 'Tartson velünk szombati kertészeti workshopunkon! Megtanuljuk a metszés, oltás és a természetes növényvédelem alapjait.',
+    cim: 'Nyitva vagyunk, várunk szeretettel',
+    leiras: 'Akár tanácsra, akár növényre van szükséged — a Bodzaliget Kertészetben mindig segítünk. Nézelődni is érdemes betérni.',
     kep: kep3,
   },
 ]
@@ -41,7 +41,7 @@ export default function HosCsuszka() {
   }, [])
 
   useEffect(() => {
-    const idozito = setInterval(kovetkezo, 6000)
+    const idozito = setInterval(kovetkezo, 10000)
     return () => clearInterval(idozito)
   }, [kovetkezo])
 
@@ -51,9 +51,9 @@ export default function HosCsuszka() {
       <AnimatePresence mode="sync">
         <motion.div
           key={aktualis}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, scale: 1.05, zIndex: 1 }}
+          animate={{ opacity: 1, scale: 1, zIndex: 1 }}
+          exit={{ opacity: 0, zIndex: 0 }}
           transition={{ duration: 1.5, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
@@ -61,54 +61,48 @@ export default function HosCsuszka() {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${hirek[aktualis].kep})` }}
           />
-          {/* Subtle overlay — only bottom edge for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/30 via-transparent to-stone-900/60" />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/20 via-stone-900/10 to-stone-900/80" />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-20 px-6">
         <div className="max-w-6xl mx-auto w-full">
-          {/* Top label */}
-          <motion.p
-            key={`label-${aktualis}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xs tracking-[0.3em] uppercase text-cream/70 mb-4"
-          >
-            Aktualitások
-          </motion.p>
 
-          {/* Title */}
+          {/* Szöveg — egységes animáció */}
           <AnimatePresence mode="wait">
-            <motion.h2
-              key={`title-${aktualis}`}
-              initial={{ opacity: 0, y: 20 }}
+            <motion.div
+              key={aktualis}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.8 }}
-              className="font-serif text-3xl md:text-5xl text-cream leading-tight max-w-2xl mb-4"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
+              className="mb-6"
             >
-              {hirek[aktualis].cim}
-            </motion.h2>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={`desc-${aktualis}`}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-cream/80 max-w-lg text-sm md:text-base leading-relaxed mb-8"
-            >
-              {hirek[aktualis].leiras}
-            </motion.p>
+              <p
+                className="text-xs tracking-[0.3em] uppercase text-cream/70 mb-3"
+                style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+              >
+                Aktualitások
+              </p>
+              <h2
+                className="font-serif text-3xl md:text-4xl text-cream leading-tight mb-3"
+                style={{ textShadow: '0 2px 8px rgba(0,0,0,0.6)' }}
+              >
+                {hirek[aktualis].cim}
+              </h2>
+              <p
+                className="text-cream/90 text-sm md:text-base leading-relaxed max-w-lg"
+                style={{ textShadow: '0 1px 6px rgba(0,0,0,0.7)' }}
+              >
+                {hirek[aktualis].leiras}
+              </p>
+            </motion.div>
           </AnimatePresence>
 
           {/* Controls */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 mt-6">
             <button
               onClick={elozo}
               className="w-10 h-10 rounded-full border border-cream/30 flex items-center justify-center text-cream/70 hover:bg-cream/10 transition-all duration-300 cursor-pointer"
